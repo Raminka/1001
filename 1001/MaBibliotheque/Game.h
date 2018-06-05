@@ -3,6 +3,9 @@
 #include "SFML/Graphics.hpp"
 #include "MainMenu.h"
 #include "Drawing.h"
+#include "ObjectManager.h"
+#include "PlayerPaddle.h"
+#include "Ball.h"
 
 
 class Game
@@ -15,8 +18,9 @@ private:
 	static bool IsExiting();
 	static void GameLoop();
 	
-	//static void ShowSplashScreen();
-	  static void ShowMenu();
+	static void ShowMenu();
+
+	static void InitGame(int level);
 
 	enum GameState {
 		Uninitialized,  Paused,
@@ -27,4 +31,5 @@ private:
 	static sf::RenderWindow mainWindow;
 
 	static Drawing drawing;
+	static ObjectManager objectManager;
 };

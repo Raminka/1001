@@ -25,6 +25,18 @@
     <Filter Include="Source Files\Jeu">
       <UniqueIdentifier>{b5dcf911-e559-49e8-9b3a-f33410d7b80f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Jeu\movingObjects">
+      <UniqueIdentifier>{a110ff0e-b18c-4449-afed-0ee4df760f1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Jeu\movingObjects">
+      <UniqueIdentifier>{055315af-3442-4832-aa00-70c1dd12b17e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Jeu\obstacles">
+      <UniqueIdentifier>{8c86fc53-30ae-4fe5-bed6-3291ea13c90c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Jeu\obstacles">
+      <UniqueIdentifier>{aebdf1f3-8369-4014-b4c0-26d007afa769}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -42,20 +54,32 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\affichage</Filter>
     </ClInclude>
-    <ClInclude Include="Brick.h">
-      <Filter>Header Files\Jeu</Filter>
-    </ClInclude>
-    <ClInclude Include="Rock.h">
-      <Filter>Header Files\Jeu</Filter>
-    </ClInclude>
     <ClInclude Include="color.h">
-      <Filter>Header Files\Jeu</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstacle.h">
       <Filter>Header Files\Jeu</Filter>
     </ClInclude>
     <ClInclude Include="Drawing.h">
       <Filter>Header Files\affichage</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingObject.h">
+      <Filter>Header Files\Jeu\movingObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPaddle.h">
+      <Filter>Header Files\Jeu\movingObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Header Files\Jeu\movingObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Header Files\Jeu\obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstacle.h">
+      <Filter>Header Files\Jeu\obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>Header Files\Jeu\obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Header Files\Jeu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -71,23 +95,40 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\affichage</Filter>
     </ClCompile>
-    <ClCompile Include="Brick.cpp">
-      <Filter>Source Files\Jeu</Filter>
-    </ClCompile>
     <ClCompile Include="color.cpp">
-      <Filter>Source Files\Jeu</Filter>
-    </ClCompile>
-    <ClCompile Include="Rock.cpp">
-      <Filter>Source Files\Jeu</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstacle.cpp">
       <Filter>Source Files\Jeu</Filter>
     </ClCompile>
     <ClCompile Include="Drawing.cpp">
       <Filter>Source Files\affichage</Filter>
     </ClCompile>
+    <ClCompile Include="MovingObject.cpp">
+      <Filter>Source Files\Jeu\movingObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPaddle.cpp">
+      <Filter>Source Files\Jeu\movingObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Source Files\Jeu\movingObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Brick.cpp">
+      <Filter>Source Files\Jeu\obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstacle.cpp">
+      <Filter>Source Files\Jeu\obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>Source Files\Jeu\obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Source Files\Jeu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Construction.xml" />
+    <Image Include="paddle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ball.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

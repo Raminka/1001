@@ -21,7 +21,6 @@ Drawing::Drawing(pugi::xml_node node)
 }
 
 void Drawing::update(pugi::xml_node node) {
-	std::cout << "coucou\n";
 	for (auto child : node.children()) {
 		if ((std::string) child.name() == "Brick") {
 			obstacles.push_back(std::make_unique<Brick>(child));

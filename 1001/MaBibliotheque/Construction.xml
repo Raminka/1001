@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Drawing>                                             
-    <Brick  x="0" y="0" />
-    <Brick x="140" y="0" />
-    <Rock x="200" y="200" foisX="2" foisY="3" />
-</Drawing>
