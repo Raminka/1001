@@ -6,11 +6,11 @@
 #include "ObjectManager.h"
 #include "PlayerPaddle.h"
 #include "Ball.h"
+#include <Box2D\Box2D.h>
 
 
 class Game
 {
-
 public:
 	static void Start();
 
@@ -23,13 +23,14 @@ private:
 	static void InitGame(int level);
 
 	enum GameState {
-		Uninitialized,  Paused,
-		ShowingMenu, Playing, Exiting
+		Uninitialized, ShowingMenu, Playing, Exiting
 	};
 
 	static GameState gameState;
 	static sf::RenderWindow mainWindow;
 
-	static Drawing drawing;
+	//static Drawing drawing;
 	static ObjectManager objectManager;
+
+	static b2World world;
 };

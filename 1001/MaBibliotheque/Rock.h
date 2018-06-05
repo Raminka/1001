@@ -6,8 +6,8 @@
 class Rock : public Obstacle
 {
 public:
-	Rock (double fois_x, double fois_y, double fois_dimX, double fois_dimY);
-	Rock (pugi::xml_node node);
+	Rock (double fois_x, double fois_y, double fois_dimX, double fois_dimY, b2World *world);
+	Rock (pugi::xml_node node, b2World *world);
 
 	double getDimX()const;
 	double getDimY() const;

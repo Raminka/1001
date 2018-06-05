@@ -6,28 +6,26 @@ Drawing::Drawing() {
 
 }
 
-Drawing::Drawing(pugi::xml_node node)
+Drawing::Drawing(pugi::xml_node node,b2World *world)
 {
-	std::cout << "coucou\n";
 	for (auto child : node.children()) {
 		if ((std::string) child.name() == "Brick") {
-			obstacles.push_back(std::make_unique<Brick>(child));
-		
+			obstacles.push_back(std::make_unique<Brick>(child,world));
 		}
 		if ((std::string) child.name() == "Rock") {
-			obstacles.push_back(std::make_unique<Rock>(child));
+			obstacles.push_back(std::make_unique<Rock>(child,world));
 		}
 	}
 }
 
-void Drawing::update(pugi::xml_node node) {
+void Drawing::update(pugi::xml_node node, b2World *world) {
 	for (auto child : node.children()) {
 		if ((std::string) child.name() == "Brick") {
-			obstacles.push_back(std::make_unique<Brick>(child));
+			obstacles.push_back(std::make_unique<Brick>(child,world));
 
 		}
 		if ((std::string) child.name() == "Rock") {
-			obstacles.push_back(std::make_unique<Rock>(child));
+			obstacles.push_back(std::make_unique<Rock>(child,world));
 		}
 	}
 }

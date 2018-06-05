@@ -5,6 +5,7 @@
 
 ObjectManager::ObjectManager()
 {
+
 }
 
 ObjectManager::~ObjectManager()
@@ -13,7 +14,7 @@ ObjectManager::~ObjectManager()
 
 void ObjectManager::AddMovingObject(std::string name, MovingObject* gameObject)
 {
-	movingObjects.insert(std::pair<std::string, MovingObject*>(name, gameObject));
+	movingObjects.insert(std::pair<std::string, MovingObject*>(name, std::move(gameObject)));
 }
 
 /*
@@ -32,4 +33,11 @@ void ObjectManager::DrawAll(sf::RenderWindow& renderWindow)
 		object.second->Draw(renderWindow);
 	}
 	
+}
+
+void ObjectManager::Update(sf::RenderWindow& window) {
+	for (auto & object : movingObjects) {
+		object.second->update();
+	}
+	DrawAll(window);
 }

@@ -2,15 +2,16 @@
 #include "Brick.h"
 
 
-Brick::Brick(pugi::xml_node node)
+Brick::Brick(pugi::xml_node node, b2World *world)
 	: Brick{ node.attribute("x").as_double(),
-	node.attribute("y").as_double()
+	node.attribute("y").as_double(),
+	world
 }
 {
 }
 
-Brick::Brick(double fois_x, double fois_y)
-	: Obstacle{ fois_x,fois_y }
+Brick::Brick(double fois_x, double fois_y, b2World *world)
+	: Obstacle{ fois_x,fois_y,world }
 {
 	dimX = tailleX;
 	dimY = tailleY;

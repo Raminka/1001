@@ -13,8 +13,9 @@ public:
 	void AddMovingObject(std::string name, MovingObject* movingObject);
 	//void AddObstacle(std::string name, Obstacle* movingObject);
 //	MovingObject* GetMovingObject(std::string name) const;
-
+	void Update(sf::RenderWindow& window);
 	void DrawAll(sf::RenderWindow& renderWindow);
+	
 
 private:
 	std::map<std::string, std::unique_ptr<MovingObject>> movingObjects;
