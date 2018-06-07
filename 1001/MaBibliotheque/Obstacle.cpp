@@ -1,18 +1,21 @@
 #include "stdafx.h"
 #include "Obstacle.h"
+#include <iostream>
 
-
-Obstacle::Obstacle(double fois_x, double fois_y,b2World *world)
-	:x(fois_x*tailleX)
-	,y(fois_y*tailleY)
+Obstacle::Obstacle(double X, double Y, b2World *world, sf::RenderWindow & window, double dimx, double dimy)
+	:dimX(dimx)
+	,dimY(dimy)
+	,x(X + window.getSize().x / 2 )
+	,y(Y + window.getSize().y / 2 )
 {
-	b2BodyDef myBodyDef;
-	myBodyDef.type = b2_staticBody; 
-	myBodyDef.position.Set(getX(), getY()); 
-	staticBody = world->CreateBody(&myBodyDef); 
+	float SCALE = 30.f;
+	myBodyDef.type = b2_staticBody;
+	myBodyDef.position.Set(x / SCALE, y / SCALE);
+
+	staticBody = world->CreateBody(&myBodyDef);
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(tailleX, tailleY); //à redefinir la taille
-	b2FixtureDef boxFixtureDef;
+	boxShape.SetAsBox(dimX / (2 * SCALE), dimY / (2 * SCALE)); 
+
 	boxFixtureDef.shape = &boxShape;
 	boxFixtureDef.density = 1;
 	staticBody->CreateFixture(&boxFixtureDef);

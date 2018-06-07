@@ -1,26 +1,29 @@
 #include "stdafx.h"
 #include "Ball.h"
 
-
-Ball::Ball(b2World* world, float x, float y)
+Ball::Ball(b2World* world, double x, double y)
 	: MovingObject{}
 {
 	Load("../MaBibliotheque/ball.png");
 
+	float SCALE = 30.f;
 	myBodyDef.type = b2_dynamicBody;
 	myBodyDef.position.Set(x / SCALE, y / SCALE);
-	//myBodyDef.linearVelocity.Set(0, 0);
-	//myBodyDef.userData = (void*) "ball";
 	body = (world->CreateBody(&myBodyDef));
 
 	b2CircleShape circleShape;
-	//circleShape.m_p.Set(0, 0); //position, relative to body position
-	circleShape.m_radius = getSizeX() / 2;
+	circleShape.m_radius = getSizeX() / (SCALE*2)	;
 
 	myFixtureDef.density = 1;
 	myFixtureDef.restitution = 1;
-	myFixtureDef.shape = &circleShape; //this is a pointer to the shape above
+	myFixtureDef.shape = &circleShape; 
 	body->CreateFixture(&myFixtureDef);
+	if (x < 200) {
+		body->ApplyForce(b2Vec2(400, 0), b2Vec2(0, 0), true);
+	}
+	else {
+		body->ApplyForce(b2Vec2(-400, 0), b2Vec2(0, 0), true);
+	}
 	update();
 }
 
@@ -30,3 +33,5 @@ Ball::~Ball()
 }
 
 
+void Ball::Up() {}
+void Ball::Down(){}

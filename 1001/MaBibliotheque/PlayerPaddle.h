@@ -5,11 +5,13 @@ class PlayerPaddle
 	: public MovingObject
 {
 public:
-	PlayerPaddle(b2World* world, float x, float y);
+	PlayerPaddle(b2World* world, double x, double y);
 	~PlayerPaddle();
 
+	void Up() ;
+	void Down() ; 
+
 private:
-	//b2Body * body;
 	b2BodyDef myBodyDef;
 	b2FixtureDef boxFixtureDef;
 };

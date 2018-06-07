@@ -6,14 +6,11 @@
 class Brick : public Obstacle
 {
 public:
-	Brick(double x, double y,b2World *world);
-	Brick(pugi::xml_node node, b2World *world);
-	void Draw(sf::RenderWindow & window) override;
-	//std::string getColor() const;
+	Brick(double x, double y,b2World *world, sf::RenderWindow & window);
+	Brick(pugi::xml_node node, b2World *world, sf::RenderWindow & window);
+	
+	void Draw(sf::RenderWindow & window) override;	
 
 private:
-	double dimX;
-	double dimY;
-	//std::string color;
 };
 

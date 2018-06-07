@@ -2,7 +2,6 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "MainMenu.h"
-#include "Drawing.h"
 #include "ObjectManager.h"
 #include "PlayerPaddle.h"
 #include "Ball.h"
@@ -20,8 +19,6 @@ private:
 	
 	static void ShowMenu();
 
-	static void InitGame(int level);
-
 	enum GameState {
 		Uninitialized, ShowingMenu, Playing, Exiting
 	};
@@ -29,8 +26,10 @@ private:
 	static GameState gameState;
 	static sf::RenderWindow mainWindow;
 
-	//static Drawing drawing;
 	static ObjectManager objectManager;
 
 	static b2World world;
+
+	/**init des obstacles du jeu*/
+	static void InitGame(int level);
 };

@@ -9,15 +9,23 @@ static const unsigned int tailleY(50);
 class Obstacle
 {
 public:
-	Obstacle(double fois_x, double fois_y, b2World* world);
+	Obstacle(double X, double Y, b2World* world, sf::RenderWindow & window, double dimx,double dimy);
+
 	virtual void Draw(sf::RenderWindow & window) = 0;
 
 	double getX() const;
 	double getY() const;
 
+	double dimX;
+	double dimY;
+
+	b2Body* staticBody=NULL;
+	b2BodyDef myBodyDef;
+	b2FixtureDef boxFixtureDef;
+
 protected:
 	double x;
 	double y;
-	b2Body* staticBody;
+	
 };
 

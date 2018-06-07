@@ -1,13 +1,10 @@
 #include "stdafx.h"
 #include "MovingObject.h"
-#include <iostream>
 
 MovingObject::MovingObject()
 	: isLoaded ( false )
-{
-	
+{	
 }
-
 
 MovingObject::~MovingObject()
 {
@@ -23,6 +20,7 @@ void MovingObject::Load(std::string filename1) {
 	else
 	{
 		filename = filename1;
+		image.setSmooth(true);
 		sprite.setTexture(image);
 		isLoaded = true;
 	}
@@ -36,13 +34,6 @@ void MovingObject::Draw(sf::RenderWindow & window) {
 	}
 }
 
-//initialisation
-void MovingObject::SetPosition(float x, float y) {
-	if (isLoaded) {
-		sprite.setPosition(body->GetPosition().x*SCALE, body->GetPosition().y*SCALE);
-	}
-}
-
 float MovingObject::getSizeX() {
 	return image.getSize().x;
 }
@@ -52,8 +43,7 @@ float MovingObject::getSizeY() {
 }
 
 void MovingObject::update() {
-	//std::cout << "%d" <<body->GetPosition().x<<"\n";
+	float SCALE = 30.f;
 	b2Vec2 pos = body->GetPosition();
-	sprite.setPosition( pos.x*SCALE,pos.y*SCALE);
-	std::cout << "x " << sprite.getPosition().x << " " << pos.x*SCALE << "\n";
+	sprite.setPosition( pos.x*SCALE-getSizeX()/2,pos.y*SCALE-getSizeY()/2);
 }

@@ -2,8 +2,6 @@
 #include <Box2D\Box2D.h>
 #include <string>
 #include <SFML/Graphics.hpp>
-const float SCALE = 30.f;
-
 
 class MovingObject
 {
@@ -13,8 +11,6 @@ public:
 
 	virtual void Load(std::string filename1);
 	virtual void Draw(sf::RenderWindow & window);
-	
-	virtual void SetPosition(float x, float y);
 
 	virtual float getSizeX();
 	virtual float getSizeY();
@@ -22,8 +18,11 @@ public:
 
 	void update();
 
+	virtual	void Up()=0;
+	virtual	void Down() = 0;
+
 	b2Body * body=NULL;
-	//b2World * world;
+
 private:
 	sf::Sprite sprite;
 	sf::Texture image;

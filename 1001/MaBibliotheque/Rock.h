@@ -6,16 +6,13 @@
 class Rock : public Obstacle
 {
 public:
-	Rock (double fois_x, double fois_y, double fois_dimX, double fois_dimY, b2World *world);
-	Rock (pugi::xml_node node, b2World *world);
+	Rock (double fois_x, double fois_y, double fois_dimX, double fois_dimY, b2World *world, sf::RenderWindow & window);
+	Rock (pugi::xml_node node, b2World *world, sf::RenderWindow & window);
 
-	double getDimX()const;
-	double getDimY() const;
 	void Draw(sf::RenderWindow & window) override; 
 
 private:
+	
 
-	double dimX;
-	double dimY;
 };
 
