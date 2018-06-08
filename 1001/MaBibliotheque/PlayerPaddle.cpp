@@ -18,7 +18,9 @@ PlayerPaddle::PlayerPaddle(b2World* world, double x, double y)
 	boxFixtureDef.shape = &boxShape;
 	boxFixtureDef.density = 1;
 	body->CreateFixture(&boxFixtureDef);
+	//body->SetUserData(this);
 	update();
+
 }
 
 

@@ -20,8 +20,12 @@ public:
 
 	virtual	void Up()=0;
 	virtual	void Down() = 0;
+	void stop();
 
 	b2Body * body=NULL;
+
+	double getPositonX();
+	double getPositonY();
 
 private:
 	sf::Sprite sprite;

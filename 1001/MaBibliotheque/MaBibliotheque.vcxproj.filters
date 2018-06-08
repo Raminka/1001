@@ -81,6 +81,9 @@
     <ClInclude Include="Wall.h">
       <Filter>Header Files\Jeu\obstacles</Filter>
     </ClInclude>
+    <ClInclude Include="MyContactListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -121,6 +124,9 @@
     </ClCompile>
     <ClCompile Include="Wall.cpp">
       <Filter>Source Files\Jeu\obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="MyContactListener.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

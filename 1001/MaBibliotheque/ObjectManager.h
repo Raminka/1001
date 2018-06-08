@@ -21,9 +21,14 @@ public:
 	
 	void handleInput(sf::Event event);
 
+	bool Stop;
+
 private:
 	std::map<std::string, std::unique_ptr<MovingObject>> movingObjects;
 	std::vector<std::unique_ptr<Obstacle>> obstacles;
 
 	void DrawAll(sf::RenderWindow& renderWindow);
+
+	std::vector<sf::CircleShape> lights;
+	sf::RenderTexture target;
 };

@@ -24,7 +24,9 @@ Ball::Ball(b2World* world, double x, double y)
 	else {
 		body->ApplyForce(b2Vec2(-400, 0), b2Vec2(0, 0), true);
 	}
+	//body->SetUserData(this);
 	update();
+
 }
 
 

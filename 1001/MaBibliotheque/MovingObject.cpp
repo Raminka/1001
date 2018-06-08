@@ -47,3 +47,16 @@ void MovingObject::update() {
 	b2Vec2 pos = body->GetPosition();
 	sprite.setPosition( pos.x*SCALE-getSizeX()/2,pos.y*SCALE-getSizeY()/2);
 }
+
+void MovingObject::stop() {
+	body->SetLinearVelocity(b2Vec2(0, 0));
+}
+
+double MovingObject::getPositonX() {
+	float scale = 30.f;
+	return body->GetPosition().x*scale;
+}
+double MovingObject::getPositonY() {
+	float scale = 30.f;
+	return body->GetPosition().y*scale;
+}

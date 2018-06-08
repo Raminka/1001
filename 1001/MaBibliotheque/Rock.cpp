@@ -29,3 +29,5 @@ void Rock::Draw(sf::RenderWindow & window) {
 	rect.setPosition(staticBody->GetPosition().x*scale-dimX/2, staticBody->GetPosition().y*scale-dimY/2);
 	window.draw(rect);
 }
+
+void Rock::startContact() {}

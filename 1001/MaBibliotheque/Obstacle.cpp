@@ -7,6 +7,8 @@ Obstacle::Obstacle(double X, double Y, b2World *world, sf::RenderWindow & window
 	,dimY(dimy)
 	,x(X + window.getSize().x / 2 )
 	,y(Y + window.getSize().y / 2 )
+	,toDelete(false)
+	,m_contact(false)
 {
 	float SCALE = 30.f;
 	myBodyDef.type = b2_staticBody;
@@ -19,6 +21,7 @@ Obstacle::Obstacle(double X, double Y, b2World *world, sf::RenderWindow & window
 	boxFixtureDef.shape = &boxShape;
 	boxFixtureDef.density = 1;
 	staticBody->CreateFixture(&boxFixtureDef);
+	staticBody->SetUserData(this);
 }
 
 
@@ -29,3 +32,4 @@ double Obstacle::getX()const {
 double Obstacle::getY() const {
 	return y;
 }
+

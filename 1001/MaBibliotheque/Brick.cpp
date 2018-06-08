@@ -17,10 +17,23 @@ Brick::Brick(double fois_x, double fois_y, b2World *world, sf::RenderWindow & wi
 {
 }
 
+
+
 void Brick::Draw(sf::RenderWindow & window) {
-	float scale = 30.f;
-	sf::RectangleShape rect(sf::Vector2f(dimX-0.5, dimY-0.5));
-	rect.setFillColor(sf::Color(255, 255, 255));
-	rect.setPosition(staticBody->GetPosition().x*scale-dimX/2,staticBody->GetPosition().y*scale-dimY/2);
-	window.draw(rect);
+	float scale = 30.f;	
+	
+	if (m_contact)
+	{
+		toDelete = true;
+		staticBody->GetWorld()->DestroyBody(staticBody);
+	}
+	else {
+		sf::RectangleShape rect(sf::Vector2f(dimX - 0.5, dimY - 0.5));
+		rect.setPosition(staticBody->GetPosition().x*scale - dimX / 2, staticBody->GetPosition().y*scale - dimY / 2);
+		window.draw(rect);
+		rect.setFillColor(sf::Color(255, 255, 255));
+	}
+	
 }
+
+void Brick::startContact() { m_contact = true; }

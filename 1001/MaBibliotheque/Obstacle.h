@@ -23,6 +23,11 @@ public:
 	b2BodyDef myBodyDef;
 	b2FixtureDef boxFixtureDef;
 
+	bool m_contact;
+	virtual void startContact()=0;
+
+	bool toDelete;
+
 protected:
 	double x;
 	double y;

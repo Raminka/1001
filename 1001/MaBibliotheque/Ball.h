@@ -14,5 +14,6 @@ public:
 private:
 	b2BodyDef myBodyDef;
 	b2FixtureDef myFixtureDef;
+	//const double vel = 15;
 };
 

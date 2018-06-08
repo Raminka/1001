@@ -6,7 +6,7 @@
 #include "PlayerPaddle.h"
 #include "Ball.h"
 #include <Box2D\Box2D.h>
-
+#include "MyContactListener.h"
 
 class Game
 {
@@ -32,4 +32,8 @@ private:
 
 	/**init des obstacles du jeu*/
 	static void InitGame(int level);
+
+	static MyContactListener myContactListenerInstance;
+
+
 };

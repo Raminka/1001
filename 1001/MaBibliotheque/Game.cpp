@@ -44,11 +44,9 @@ void Game::GameLoop()
 		
 		case Game::Playing:
 		{
-			mainWindow.clear(sf::Color(sf::Color(0, 0, 0)));
-
+			mainWindow.clear(sf::Color(0, 150, 255, 255));
 			/*draw les obstacles*/
 			objectManager.Update(mainWindow);
-			
 			mainWindow.display();
 			
 				if (currentEvent.type == sf::Event::Closed) {
@@ -113,6 +111,13 @@ void Game::InitGame(int level ) {
 	objectManager.AddMovingObject("ball1", ball1);
 	objectManager.AddMovingObject("ball2", ball2);
 	mainWindow.setFramerateLimit(70);
+
+	
+
+	//in FooTest constructor
+	world.SetContactListener(&myContactListenerInstance);
+
+	
 }
 
 
@@ -120,3 +125,4 @@ Game::GameState Game::gameState = Uninitialized;
 sf::RenderWindow Game::mainWindow;
 ObjectManager Game::objectManager;
 b2World Game::world=b2World(b2Vec2(0.0f, 0.0f));
+MyContactListener Game::myContactListenerInstance;
