@@ -54,9 +54,6 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\affichage</Filter>
     </ClInclude>
-    <ClInclude Include="color.h">
-      <Filter>Header Files\Jeu</Filter>
-    </ClInclude>
     <ClInclude Include="MovingObject.h">
       <Filter>Header Files\Jeu\movingObjects</Filter>
     </ClInclude>
@@ -82,7 +79,13 @@
       <Filter>Header Files\Jeu\obstacles</Filter>
     </ClInclude>
     <ClInclude Include="MyContactListener.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Jeu</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>Header Files\affichage</Filter>
+    </ClInclude>
+    <ClInclude Include="LightSwitch.h">
+      <Filter>Header Files\Jeu\obstacles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,9 +100,6 @@
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\affichage</Filter>
-    </ClCompile>
-    <ClCompile Include="color.cpp">
-      <Filter>Source Files\Jeu</Filter>
     </ClCompile>
     <ClCompile Include="MovingObject.cpp">
       <Filter>Source Files\Jeu\movingObjects</Filter>
@@ -125,16 +125,32 @@
     <ClCompile Include="Wall.cpp">
       <Filter>Source Files\Jeu\obstacles</Filter>
     </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>Source Files\affichage</Filter>
+    </ClCompile>
     <ClCompile Include="MyContactListener.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="LightSwitch.cpp">
+      <Filter>Source Files\Jeu\obstacles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="paddle.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="ball.png">
+    <Image Include="ballFeu.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Pixelmania.ttf" />
+    <Font Include="NORIKEE.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="lvl2.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

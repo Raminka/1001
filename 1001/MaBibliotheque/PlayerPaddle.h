@@ -8,8 +8,10 @@ public:
 	PlayerPaddle(b2World* world, double x, double y);
 	~PlayerPaddle();
 
-	void Up() ;
-	void Down() ; 
+	void Up(sf::Event event) ;
+	void Down(sf::Event event) ;
+
+	void update() override;
 
 private:
 	b2BodyDef myBodyDef;

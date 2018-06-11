@@ -1,65 +1,49 @@
 #include "stdafx.h"
  #include "MainMenu.h"
+#include <iostream>
 
- MainMenu::MenuResult MainMenu::Show(sf::RenderWindow& window)
+MainMenu::MainMenu(){
+}
+MainMenu::~MainMenu(){}
+
+void MainMenu::create(sf::RenderWindow& window) {
+	menuItems.push_back(std::make_unique<button>(window, 300, 250, 300, "I", button::PlayLVL1, 0.05));
+	menuItems.push_back(std::make_unique<button>(window, window.getSize().x - 300, 250, 300, "II", button::PlayLVL2, 0.15));
+	menuItems.push_back(std::make_unique<button>(window, window.getSize().x / 2, window.getSize().y - 250, 200, "X", button::Exit, 0.2));
+}
+
+ MainMenu::MainMenuResult MainMenu::Show(sf::RenderWindow& window)
  {
-	
 
-	//Play menu item coordinates
-	MenuItem playButton;
-	playButton.rect.top = 145;
-	playButton.rect.height = 235;
-	playButton.rect.left = 0;
-	playButton.rect.width = 1023;
-	playButton.action = Play;
-	
-	//Exit menu item coordinates
-	MenuItem exitButton;
-	exitButton.rect.left = 0;
-	exitButton.rect.width = 1023;
-	exitButton.rect.top = 383;
-	exitButton.rect.height = 177;
-	exitButton.action = Exit;
-	
-	menuItems.push_back(playButton);
-	menuItems.push_back(exitButton);
-	
-	sf::RectangleShape rectPlay;
-	rectPlay.setPosition(playButton.rect.left, playButton.rect.top);
-	rectPlay.setFillColor(sf::Color(125, 125, 125));
-	rectPlay.setSize(sf::Vector2f(playButton.rect.width,playButton.rect.height ));
-	 
-	sf::RectangleShape rectExit;
-	rectExit.setPosition(exitButton.rect.left, exitButton.rect.top);
-	rectExit.setFillColor(sf::Color(255, 125, 125));
-	rectExit.setSize(sf::Vector2f(exitButton.rect.width, exitButton.rect.height));
-	
+	 window.clear();
+	 for (auto & item : menuItems) {
+		 item->Draw(window);
+	 }
 
-	window.draw(rectPlay);
-	window.draw(rectExit);
 	window.display();
 	return GetMenuResponse(window);
 }
 
- MainMenu::MenuResult MainMenu::HandleClick(int x, int y)
+ MainMenu::MainMenuResult MainMenu::HandleClick(int x, int y)
  {
-	std::list<MenuItem>::iterator it;
-	
-	for (it = menuItems.begin(); it != menuItems.end(); it++)
+	//std::list<button>::iterator it;
+	for (auto it = menuItems.begin(); it != menuItems.end(); it++)
 	{
-		sf::Rect<int> menuItemRect = (*it).rect;
-		if (menuItemRect.top+menuItemRect.height > y
-			 && menuItemRect.top < y
-			 && menuItemRect.left < x
-			 && menuItemRect.width+menuItemRect.width > x)
-		 {
-		      return (*it).action;
-		 }
+		/*verification si le click a eu lieu sur un des buttons*/
+		if ((*it)->getCentreY() - (*it)->getDim() / 2 < y
+			&& (*it)->getCentreY() + (*it)->getDim() / 2 > y
+			&& (*it)->getCentreX() - (*it)->getDim() / 2 < x
+			&& (*it)->getCentreX() + (*it)->getDim() / 2 > x) {
+			/*permet de savoir si le mode Light ou Dark a été choisi*/
+			if (x + y < (*it)->getCentreY()+ (*it)->getCentreX())
+				return  { (*it)->action, Light };
+			else return { (*it)->action, Dark };
+		}
 	}	
-	return Nothing;
+	return { button::Nothing, Light };
 }
 
- MainMenu::MenuResult  MainMenu::GetMenuResponse(sf::RenderWindow& window)
+ MainMenu::MainMenuResult  MainMenu::GetMenuResponse(sf::RenderWindow& window)
  {
 	sf::Event menuEvent;
 
@@ -73,12 +57,13 @@
 		    }
 		    if (menuEvent.type == sf::Event::Closed)
 		    {
-			     return Exit;
+				return { button::Exit,Light };
 			}
 		}
 	}
 }
 
 
-
-
+ void MainMenu::clear() {
+	 menuItems.clear();
+ }

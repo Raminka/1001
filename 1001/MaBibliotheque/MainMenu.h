@@ -3,25 +3,27 @@
 #include "SFML/Graphics.hpp"
 #include <list>
 #include <pugixml.hpp>
+#include "button.h"
+#include <memory>
 
 class MainMenu
 {
 
 public:
-	enum MenuResult { Nothing, Exit, Play };
-	
-	struct MenuItem
-	{
-		public:
-			sf::Rect<int> rect;
-			MenuResult action;
+	MainMenu();
+	~MainMenu();
+	void create(sf::RenderWindow& window);
+	enum ModePlay { Light, Dark };
+	struct MainMenuResult {
+		button::MenuAction action;
+		ModePlay mode;
 	};
-
-	MenuResult Show(sf::RenderWindow& window);
+	MainMenu::MainMenuResult Show(sf::RenderWindow& window);
+	void clear();
 
 private:
-	MenuResult GetMenuResponse(sf::RenderWindow& window);
-	MenuResult HandleClick(int x, int y);
-	std::list<MenuItem> menuItems;
+	MainMenu::MainMenuResult GetMenuResponse(sf::RenderWindow& window);
+	MainMenu::MainMenuResult HandleClick(int x, int y);
+	std::list<std::unique_ptr<button>> menuItems;
 	pugi::xml_node nodeLVL;
 };

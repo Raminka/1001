@@ -11,7 +11,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaBibliotheque", "MaBibliot
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{518B6A29-9E1D-48FF-8AC6-027DFAC579CD}"
 	ProjectSection(SolutionItems) = preProject
-		construction.xml = construction.xml
+		MaBibliotheque\ballFeu.png = MaBibliotheque\ballFeu.png
+		lvl1.xml = lvl1.xml
+		MaBibliotheque\lvl2.xml = MaBibliotheque\lvl2.xml
 		MaBibliotheque\paddle.png = MaBibliotheque\paddle.png
 	EndProjectSection
 EndProject

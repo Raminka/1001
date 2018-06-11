@@ -8,12 +8,14 @@ public:
 	Ball(b2World* world, double x, double y);
 	~Ball();
 
-	void Up() ;
-	void Down() ;
+	void Up(sf::Event event) ;
+	void Down(sf::Event event) ;
+
+	void update() override;
 
 private:
 	b2BodyDef myBodyDef;
-	b2FixtureDef myFixtureDef;
-	//const double vel = 15;
+	double vel = 10;
+	double coef;
 };
 

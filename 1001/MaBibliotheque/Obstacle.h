@@ -13,24 +13,32 @@ public:
 
 	virtual void Draw(sf::RenderWindow & window) = 0;
 
+	virtual void startContact() = 0;//si l'objet est touché
+
+	void clear();
+
 	double getX() const;
 	double getY() const;
+	double getDimX() const;
+	double getDimY() const;
 
-	double dimX;
-	double dimY;
+//	bool touched; //objet touché ou pas
 
-	b2Body* staticBody=NULL;
-	b2BodyDef myBodyDef;
-	b2FixtureDef boxFixtureDef;
-
-	bool m_contact;
-	virtual void startContact()=0;
-
-	bool toDelete;
+	enum ObstacleAction{toDelete,stopGame,switchLight,nothing};
+	ObstacleAction obstacleAction;
 
 protected:
 	double x;
 	double y;
-	
+	float SCALE = 30.f;
+
+	double dimX;
+	double dimY;
+
+	b2Body* staticBody = NULL;
+	b2BodyDef myBodyDef;
+	b2FixtureDef boxFixtureDef;
+
+	bool m_contact; //est ce qu'il ya contact
 };
 

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- < construction de niveau/> -->
+<!--- < Le centre de window est considéré comme le point (0,0) pour  les objets /> -->
+<!--- < Ici x et y ne donnent pas directement la position de l'objet dans le window. 
+L'objet est positionné au point ( x * tailleX , y * tailleY )     /> -->
+<!--- < tailleX et tailleY sont definit dans la classe Obstacle et defenissent la taille des Bricks /> -->
+<!--- < Les tailles de Rocks sont proportionnelles à la taille de Brick. On a les relations suivantes: 
+dimentionX de Rock = dimX*tailleX et dimentionY de Rock = dimY * tailleY/> -->
+<Drawing>
+
+  <Brick x="-6" y="-6.5" />
+  <Brick  x="-6" y="-5.5" />
+  <Brick x="-6" y="-4.5" />
+  <Brick  x="-3" y="-6.5" />
+  <Brick x="-3" y="-5.5" />
+  <Brick  x="-3" y="-4.5" />
+  <Brick x="-2" y="-4.5" />
+  <Brick  x="-2" y="-6.5" />
+  <Brick x="-1" y="-4.5" />
+  <Brick  x="-1" y="-5.5" />
+  <Brick x="-1" y="-6.5" />
+
+  <Brick x="6" y="-6.5" />
+  <Brick  x="6" y="-5.5" />
+  <Brick x="6" y="-4.5" />
+  <Brick  x="3" y="-6.5" />
+  <Brick x="3" y="-5.5" />
+  <Brick  x="3" y="-4.5" />
+  <Brick x="2" y="-4.5" />
+  <Brick  x="2" y="-6.5" />
+  <Brick x="1" y="-4.5" />
+  <Brick  x="1" y="-5.5" />
+  <Brick x="1" y="-6.5" />
+  
+
+  <Brick x="-6" y="-3" />
+  <Brick  x="-6" y="-2" />
+  <Brick x="-6" y="-1" />
+  <Brick  x="-3" y="-3" />
+  <Brick x="-3" y="-2" />
+  <Brick  x="-3" y="-1" />
+  <Brick x="-2" y="-1" />
+  <Brick  x="-2" y="-3" />
+  <Brick x="-1" y="-1" />
+  <Brick  x="-1" y="-2" />
+  <Brick x="-1" y="-3" />
+
+  <Brick x="6" y="-3" />
+  <Brick  x="6" y="-2" />
+  <Brick x="6" y="-1" />
+  <Brick  x="3" y="-3" />
+  <Brick x="3" y="-2" />
+  <Brick  x="3" y="-1" />
+  <Brick x="2" y="-1" />
+  <Brick  x="2" y="-3" />
+  <Brick x="1" y="-1" />
+  <Brick  x="1" y="-2" />
+  <Brick x="1" y="-3" />
+
+  <LightSwitch x="-8" y="3"/>
+   <LightSwitch x="8" y="-3"/>
+  
+  
+  
+ <Brick x="-6" y="6.5" />
+  <Brick  x="-6" y="5.5" />
+  <Brick x="-6" y="4.5" />
+  <Brick  x="-3" y="6.5" />
+  <Brick x="-3" y="5.5" />
+  <Brick  x="-3" y="4.5" />
+  <Brick x="-2" y="4.5" />
+  <Brick  x="-2" y="6.5" />
+  <Brick x="-1" y="4.5" />
+  <Brick  x="-1" y="5.5" />
+  <Brick x="-1" y="6.5" />
+
+  <Brick x="6" y="6.5" />
+  <Brick  x="6" y="5.5" />
+  <Brick x="6" y="4.5" />
+  <Brick  x="3" y="6.5" />
+  <Brick x="3" y="5.5" />
+  <Brick  x="3" y="4.5" />
+  <Brick x="2" y="4.5" />
+  <Brick  x="2" y="6.5" />
+  <Brick x="1" y="4.5" />
+  <Brick  x="1" y="5.5" />
+  <Brick x="1" y="6.5" />
+  
+
+  <Brick x="-6" y="3" />
+  <Brick  x="-6" y="2" />
+  <Brick x="-6" y="1" />
+  <Brick  x="-3" y="3" />
+  <Brick x="-3" y="2" />
+  <Brick  x="-3" y="1" />
+  <Brick x="-2" y="1" />
+  <Brick  x="-2" y="3" />
+  <Brick x="-1" y="1" />
+  <Brick  x="-1" y="2" />
+  <Brick x="-1" y="3" />
+
+  <Brick x="6" y="3" />
+  <Brick  x="6" y="2" />
+  <Brick x="6" y="1" />
+  <Brick  x="3" y="3" />
+  <Brick x="3" y="2" />
+  <Brick  x="3" y="1" />
+  <Brick x="2" y="1" />
+  <Brick  x="2" y="3" />
+  <Brick x="1" y="1" />
+  <Brick  x="1" y="2" />
+  <Brick x="1" y="3" />
+  
+</Drawing>

@@ -1,46 +1,66 @@
 #include "stdafx.h"
 #include "PlayerPaddle.h"
 
-
 PlayerPaddle::PlayerPaddle(b2World* world, double x, double y)
 	: MovingObject{}
 {
 	Load("../MaBibliotheque/paddle.png");
 
-	float SCALE = 30.f;
-	myBodyDef.type =b2_kinematicBody;
-	myBodyDef.position.Set(x / SCALE, y / SCALE);
+	myBodyDef.type = b2_kinematicBody; //pour n'est pas étre perturbé par les balls
+	myBodyDef.position.Set(x / scale, y / scale);
 	body = world->CreateBody(&myBodyDef);
 
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(getSizeX() /(SCALE* 2), getSizeY() /(SCALE* 2));
+	boxShape.SetAsBox(getSizeX() /(scale* 2), getSizeY() /(scale* 2));
 
-	boxFixtureDef.shape = &boxShape;
-	boxFixtureDef.density = 1;
-	body->CreateFixture(&boxFixtureDef);
-	//body->SetUserData(this);
+	myFixtureDef.shape = &boxShape;
+	myFixtureDef.density = 1;
+	body->CreateFixture(&myFixtureDef);
 	update();
 
 }
-
 
 PlayerPaddle::~PlayerPaddle()
 {
 }
 
-void PlayerPaddle::Up() {
-	//body->ApplyLinearImpulseToCenter(b2Vec2(0, -100), 1);
-	//body->ApplyForceToCenter(b2Vec2(0, -1000),1);
-	if (body->GetLinearVelocity().y >0)
-		body->SetLinearVelocity(b2Vec2(0, 0));
-	else if (body->GetLinearVelocity().y >-20) 
-		body->SetLinearVelocity(b2Vec2(0, body->GetLinearVelocity().y - 20));
+void PlayerPaddle::Up(sf::Event event) {
+	if (event.type == sf::Event::KeyReleased) { 
+		if (body->GetLinearVelocity().y < 0) {
+			stop();
+		}
+	}
+
+	if (body->GetPosition().y <=0.55* getSizeY()/scale) {
+		stop();
+	}
+	else if (event.type == sf::Event::KeyPressed) {
+		body->SetLinearVelocity(b2Vec2(0,- 20));
+	}
 }
-void PlayerPaddle::Down() {
-	//body->ApplyLinearImpulseToCenter(b2Vec2(0, 1000), 1);
-	//body->ApplyForceToCenter(b2Vec2(0, 1000), 1);
-	if (body->GetLinearVelocity().y <0)
-		body->SetLinearVelocity(b2Vec2(0, 0));
-	else if (body->GetLinearVelocity().y <20) 
-		body->SetLinearVelocity(b2Vec2(0, body->GetLinearVelocity().y+20));
+
+void PlayerPaddle::Down(sf::Event event) {
+	if (event.type == sf::Event::KeyReleased) {
+		if (body->GetLinearVelocity().y >0) {
+			stop();
+		}
+	}
+
+	if (body->GetPosition().y >= (limitWindowY - 0.55*getSizeY()) / scale ) {
+		stop();
+	}else if (event.type == sf::Event::KeyPressed) {
+		body->SetLinearVelocity(b2Vec2(0, 20));
+	}
+
+}
+
+void PlayerPaddle::update() {
+	/*permet d'éviter de sortir de la zone de jeu*/
+	if (body->GetPosition().y <= 0.55*getSizeY() / scale && body->GetLinearVelocity().y<0) {
+		stop();
+	} else if (body->GetPosition().y >=(limitWindowY -0.55*getSizeY()) / scale && body->GetLinearVelocity().y>0) {
+		stop();
+	}
+
+	MovingObject::update();
 }

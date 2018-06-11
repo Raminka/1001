@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--- < construction de niveau/> -->
+<!--- < Le centre de window est considéré comme le point (0,0) pour  les objets /> -->
+<!--- < Ici x et y ne donnent pas directement la position de l'objet dans le window. 
+L'objet est positionné au point ( x * tailleX , y * tailleY )     /> -->
+<!--- < tailleX et tailleY sont definit dans la classe Obstacle et defenissent la taille des Bricks /> -->
+<!--- < Les tailles de Rocks sont proportionnelles à la taille de Brick. On a les relations suivantes: 
+dimentionX de Rock = dimX*tailleX et dimentionY de Rock = dimY * tailleY/> -->
+<Drawing>
+
+  <Brick x="0" y="0" />
+  
+
+  <Brick x="0" y="1" />
+  <Brick  x="1" y="1" />
+  <Brick x="-1" y="1" />
+  <Brick  x="2" y="1" />
+  <Brick x="-2" y="1" />
+  <Brick  x="3" y="1" />
+  <Brick x="-3" y="1" />
+  <Brick  x="4" y="1" />
+  <Brick x="-4" y="1" />
+  <Brick  x="5" y="1" />
+  <Brick x="-5" y="1" />
+  <Brick  x="6" y="1" />
+  <Brick x="-6" y="1" />
+  <Brick  x="7" y="1" />
+  <Brick x="-7" y="1" />
+  <Brick  x="8" y="1" />
+  <Brick x="-8" y="1" />
+  <Brick  x="9" y="1" />
+  <Brick x="-9" y="1" />
+  
+  <Brick  x="10" y="1.5" />
+  <Brick x="-10" y="1.5" />
+
+  <Brick  x="11" y="2" />
+  <Brick x="-11" y="2" />
+  <Rock  x="0" y="2" dimX="2" dimY="1"/>
+
+  <Brick  x="10" y="2.5" />
+  <Brick x="-10" y="2.5" />
+
+  <Brick x="0" y="3" />
+  <Brick  x="1" y="3" />
+  <Brick x="-1" y="3" />
+  <Brick  x="2" y="3" />
+  <Brick x="-2" y="3" />
+  <Brick  x="3" y="3" />
+  <Brick x="-3" y="3" />
+  <Brick  x="4" y="3" />
+  <Brick x="-4" y="3" />
+  <Brick  x="5" y="3" />
+  <Brick x="-5" y="3" />
+  <Brick  x="6" y="3" />
+  <Brick x="-6" y="3" />
+  <Brick  x="7" y="3" />
+  <Brick x="-7" y="3" />
+  <Brick  x="8" y="3" />
+  <Brick x="-8" y="3" />
+  <Brick  x="9" y="3" />
+  <Brick x="-9" y="3" />
+
+  <Brick x="0" y="4" />
+
+  <Brick x="0" y="5" />
+  <Brick  x="1" y="5" />
+  <Brick x="-1" y="5" />
+  <Brick  x="2" y="5" />
+  <Brick x="-2" y="5" />
+  <Brick  x="3" y="5" />
+  <Brick x="-3" y="5" />
+  <Brick  x="4" y="5" />
+  <Brick x="-4" y="5" />
+  <Brick  x="5" y="5" />
+  <Brick x="-5" y="5" />
+  <Brick  x="6" y="5" />
+  <Brick x="-6" y="5" />
+  <Brick  x="7" y="5" />
+  <Brick x="-7" y="5" />
+  <Brick  x="8" y="5" />
+  <Brick x="-8" y="5" />
+  <Brick  x="9" y="5" />
+  <Brick x="-9" y="5" />
+  <Brick  x="10" y="5" />
+  <Brick x="-10" y="5" />
+  <Brick  x="11" y="5" />
+  <Brick x="-11" y="5" />
+
+
+  <Rock  x="0" y="7.5" dimX="2" dimY="1.5"/>
+  
+  
+  
+  
+  <Brick x="0" y="-1" />
+  <Brick  x="1" y="-1" />
+  <Brick x="-1" y="-1" />
+  <Brick  x="2" y="-1" />
+  <Brick x="-2" y="-1" />
+  <Brick  x="3" y="-1" />
+  <Brick x="-3" y="-1" />
+  <Brick  x="4" y="-1" />
+  <Brick x="-4" y="-1" />
+  <Brick  x="5" y="-1" />
+  <Brick x="-5" y="-1" />
+  <Brick  x="6" y="-1" />
+  <Brick x="-6" y="-1" />
+  <Brick  x="7" y="-1" />
+  <Brick x="-7" y="-1" />
+  <Brick  x="8" y="-1" />
+  <Brick x="-8" y="-1" />
+  <Brick  x="9" y="-1" />
+  <Brick x="-9" y="-1" />
+
+  <Brick  x="10" y="-1.5" />
+  <Brick x="-10" y="-1.5" />
+
+  <Brick  x="11" y="-2" />
+  <Brick x="-11" y="-2" />
+  <Rock  x="0" y="-2" dimX="2" dimY="1"/>
+
+  <Brick  x="10" y="-2.5" />
+  <Brick x="-10" y="-2.5" />
+
+  <Brick x="0" y="-3" />
+  <Brick  x="1" y="-3" />
+  <Brick x="-1" y="-3" />
+  <Brick  x="2" y="-3" />
+  <Brick x="-2" y="-3" />
+  <Brick  x="3" y="-3" />
+  <Brick x="-3" y="-3" />
+  <Brick  x="4" y="-3" />
+  <Brick x="-4" y="-3" />
+  <Brick  x="5" y="-3" />
+  <Brick x="-5" y="-3" />
+  <Brick  x="6" y="-3" />
+  <Brick x="-6" y="-3" />
+  <Brick  x="7" y="-3" />
+  <Brick x="-7" y="-3" />
+  <Brick  x="8" y="-3" />
+  <Brick x="-8" y="-3" />
+  <Brick  x="9" y="-3" />
+  <Brick x="-9" y="-3" />
+
+  <Brick x="0" y="-4" />
+  
+  <Brick x="0" y="-5" />
+  <Brick  x="1" y="-5" />
+  <Brick x="-1" y="-5" />
+  <Brick  x="2" y="-5" />
+  <Brick x="-2" y="-5" />
+  <Brick  x="3" y="-5" />
+  <Brick x="-3" y="-5" />
+  <Brick  x="4" y="-5" />
+  <Brick x="-4" y="-5" />
+  <Brick  x="5" y="-5" />
+  <Brick x="-5" y="-5" />
+  <Brick  x="6" y="-5" />
+  <Brick x="-6" y="-5" />
+  <Brick  x="7" y="-5" />
+  <Brick x="-7" y="-5" />
+  <Brick  x="8" y="-5" />
+  <Brick x="-8" y="-5" />
+  <Brick  x="9" y="-5" />
+  <Brick x="-9" y="-5" />
+  <Brick x="10" y="-5" />
+  <Brick x="-10" y="-5" />
+  <Brick  x="11" y="-5" />
+  <Brick x="-11" y="-5" />
+
+  <Rock  x="0" y="-7.5" dimX="2" dimY="1.5"/>
+
+</Drawing>
