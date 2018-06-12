@@ -7,18 +7,38 @@ MainMenu::MainMenu(){
 MainMenu::~MainMenu(){}
 
 void MainMenu::create(sf::RenderWindow& window) {
-	menuItems.push_back(std::make_unique<button>(window, 300, 250, 300, "I", button::PlayLVL1, 0.05));
-	menuItems.push_back(std::make_unique<button>(window, window.getSize().x - 300, 250, 300, "II", button::PlayLVL2, 0.15));
-	menuItems.push_back(std::make_unique<button>(window, window.getSize().x / 2, window.getSize().y - 250, 200, "X", button::Exit, 0.2));
+	/*deffinition des 3 boutons*/
+	menuItems.push_back(std::make_unique<button>(window, 375, 440, 375, "I", button::PlayLVL1, 0.05));
+	menuItems.push_back(std::make_unique<button>(window, window.getSize().x - 375, 440, 375, "II", button::PlayLVL2, 0.15));
+	menuItems.push_back(std::make_unique<button>(window, window.getSize().x / 2, window.getSize().y - 180, 250, "X", button::Exit, 0.2));
+
+	/* le nom de jeu */
+	/*chargement de la police */
+	if (!font.loadFromFile("../MaBibliotheque/NORIKEE.ttf"))
+	{
+		std::cout << "erreur de chargement de police\n";
+	}
+	/*definition de text */
+	text.setFont(font);
+	text.setFillColor(sf::Color(255, 0, 0));
+	text.setCharacterSize(100);
+	text.setString("IOOI");
+	text.setStyle(sf::Text::Bold);
+	text.setPosition(window.getSize().x/2-100,50);
 }
 
  MainMenu::MainMenuResult MainMenu::Show(sf::RenderWindow& window)
  {
-
+	 /*on vide la fenetre d'avant*/
 	 window.clear();
+
+	 /*affichage de chaque boutton*/
 	 for (auto & item : menuItems) {
 		 item->Draw(window);
 	 }
+
+	 /*affichage de titre*/
+	window.draw(text);
 
 	window.display();
 	return GetMenuResponse(window);
@@ -53,7 +73,7 @@ void MainMenu::create(sf::RenderWindow& window) {
 		{
 			if (menuEvent.type == sf::Event::MouseButtonPressed)
 		    {
-		         return HandleClick(menuEvent.mouseButton.x, menuEvent.mouseButton.y);
+				return HandleClick(menuEvent.mouseButton.x, menuEvent.mouseButton.y);
 		    }
 		    if (menuEvent.type == sf::Event::Closed)
 		    {

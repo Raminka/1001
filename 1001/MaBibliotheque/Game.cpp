@@ -1,22 +1,24 @@
 #include "stdafx.h"
 #include "Game.h"
 #include <iostream>
-//#define _CRTDBG_MAP_ALLOC #include <stdlib.h> #include <crtdbg.h>  
 
-
-void Game::Start(void)
+Game::Game() 
+	: gameState ( Uninitialized)
 {
-	if (gameState != Uninitialized)
-		return;
-
-	mainWindow.create(sf::VideoMode(1024, 768, 32), "1001");
-	mainMenu.create(mainWindow);
+	//mainWindow.create(sf::VideoMode(1024, 768, 32), "1001");
+	mainWindow.create(sf::VideoMode(1280, 960, 32), "1001");
 	b2Vec2 gravity(0.0f, 0.0f);//pas de gravité dans le jeu
 	world.SetGravity(gravity);
 	world.SetContactListener(&myContactListenerInstance);
 	mainWindow.setFramerateLimit(70);
 
-	//on commence par le menu
+	/*initialisation des boutons dans le mainMenu*/
+	mainMenu.create(mainWindow);
+}
+
+void Game::Start(void)
+{
+	/*on commence par l'affichage de Menu*/
 	gameState = Game::ShowingMenu;
 
 	while (!IsExiting())
@@ -24,10 +26,8 @@ void Game::Start(void)
 		GameLoop();
 	}
 
-	objectManager.clear();
 	
-	//_CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_DEBUG);
-	//_CrtDumpMemoryLeaks();
+	objectManager.clear();
 	mainWindow.clear();
 	mainWindow.close();
 	mainMenu.clear();
@@ -59,28 +59,25 @@ void Game::GameLoop()
 			mainWindow.pollEvent(currentEvent);
 			mainWindow.clear(sf::Color(0, 150, 255, 255));
 
-			/*draw les obstacles*/
+			/*mise à jour des objets de jeu*/
 			objectManager.Update(mainWindow);
 			mainWindow.display();
+
+			/*la gestion des commandes des joueurs */
+			objectManager.handleInput(currentEvent);
 
 			if (currentEvent.type == sf::Event::Closed) {
 				gameState = Game::Exiting;
 			}
-			
-			/*les commandes des joueurs*/
-			objectManager.handleInput(currentEvent);
-
-
-			world.Step(1 / 60.f, 8, 3);
-
-			if (currentEvent.type == sf::Event::KeyPressed)
-				{
+			else if (currentEvent.type == sf::Event::KeyPressed)
+			{
 				if (currentEvent.key.code == sf::Keyboard::Escape) {
 					gameState = Game::ShowingMenu;
 					objectManager.clear();
 				}
 			}
-	
+
+			world.Step(1 / 60.f, 8, 3);
 		break;
 		}
 	}
@@ -89,7 +86,7 @@ void Game::GameLoop()
 
 void Game::ShowMenu()
 {
-	//MainMenu mainMenu;
+	/*recouperation du choix de l'utilisateur*/
 	MainMenu::MainMenuResult result = mainMenu.Show(mainWindow);
 	switch (result.action)
 	{
@@ -98,10 +95,12 @@ void Game::ShowMenu()
 		break;
 	case button::PlayLVL1:
 		gameState = Game::Playing;
+		/*on initialise le jeu avec le niveau 1 et mode correspondant*/
 		InitGame(1,result.mode);
 		break;
 	case button::PlayLVL2:
 		gameState = Game::Playing;
+		/*on initialise le jeu avec le niveau 2 et mode correspondant*/
 		InitGame(2, result.mode);
 		break;
 	default:
@@ -114,6 +113,7 @@ void Game::InitGame(int level,MainMenu::ModePlay mode ) {
 	/*on efface les objets precedents*/
 	objectManager.clear ();
 
+	/*on recoupere le fichier contenant le niveau correspondant*/
 	pugi::xml_document doc;
 	pugi::xml_parse_result result;
 	if (level == 1) {
@@ -140,6 +140,8 @@ void Game::InitGame(int level,MainMenu::ModePlay mode ) {
 		gameState = Game::ShowingMenu;
 		return;
 	}
+
+	/*initialisation des objets à partir de root*/
 	pugi::xml_node root = doc.child("Drawing");
 	objectManager.initObjects(root, &world,mainWindow);//initialisation des objets
 
@@ -152,15 +154,5 @@ void Game::InitGame(int level,MainMenu::ModePlay mode ) {
 		objectManager.darkMode = true;
 		break;
 	}
-
-
-
 }
 
-
-Game::GameState Game::gameState = Uninitialized;
-sf::RenderWindow Game::mainWindow;
-ObjectManager Game::objectManager;
-b2World Game::world=b2World(b2Vec2(0.0f, 0.0f));
-MyContactListener Game::myContactListenerInstance;
-MainMenu Game::mainMenu;

@@ -8,6 +8,14 @@ L'objet est positionné au point ( x * tailleX , y * tailleY )     /> -->
 dimentionX de Rock = dimX*tailleX et dimentionY de Rock = dimY * tailleY/> -->
 <Drawing>
 
+  <LightSwitch x="0" y="2"/>
+  <LightSwitch x="0" y="-2"/>
+  <Rock x="0" y="3" dimX="1" dimY="1"/>
+  <Rock x="0" y="1" dimX="1" dimY="1"/>
+  <Rock x="0" y="-3" dimX="1" dimY="1"/>
+  <Rock x="0" y="-1" dimX="1" dimY="1"/>
+  
+  <!--- < block de centre/> -->
   <Brick x="-6" y="-6.5" />
   <Brick  x="-6" y="-5.5" />
   <Brick x="-6" y="-4.5" />
@@ -31,35 +39,7 @@ dimentionX de Rock = dimX*tailleX et dimentionY de Rock = dimY * tailleY/> -->
   <Brick x="1" y="-4.5" />
   <Brick  x="1" y="-5.5" />
   <Brick x="1" y="-6.5" />
-  
-
-  <Brick x="-6" y="-3" />
-  <Brick  x="-6" y="-2" />
-  <Brick x="-6" y="-1" />
-  <Brick  x="-3" y="-3" />
-  <Brick x="-3" y="-2" />
-  <Brick  x="-3" y="-1" />
-  <Brick x="-2" y="-1" />
-  <Brick  x="-2" y="-3" />
-  <Brick x="-1" y="-1" />
-  <Brick  x="-1" y="-2" />
-  <Brick x="-1" y="-3" />
-
-  <Brick x="6" y="-3" />
-  <Brick  x="6" y="-2" />
-  <Brick x="6" y="-1" />
-  <Brick  x="3" y="-3" />
-  <Brick x="3" y="-2" />
-  <Brick  x="3" y="-1" />
-  <Brick x="2" y="-1" />
-  <Brick  x="2" y="-3" />
-  <Brick x="1" y="-1" />
-  <Brick  x="1" y="-2" />
-  <Brick x="1" y="-3" />
-
-  <LightSwitch x="-8" y="3"/>
-   <LightSwitch x="8" y="-3"/>
-  
+   
   
   
  <Brick x="-6" y="6.5" />
@@ -87,28 +67,213 @@ dimentionX de Rock = dimX*tailleX et dimentionY de Rock = dimY * tailleY/> -->
   <Brick x="1" y="6.5" />
   
 
-  <Brick x="-6" y="3" />
-  <Brick  x="-6" y="2" />
-  <Brick x="-6" y="1" />
-  <Brick  x="-3" y="3" />
-  <Brick x="-3" y="2" />
-  <Brick  x="-3" y="1" />
-  <Brick x="-2" y="1" />
-  <Brick  x="-2" y="3" />
-  <Brick x="-1" y="1" />
-  <Brick  x="-1" y="2" />
-  <Brick x="-1" y="3" />
 
-  <Brick x="6" y="3" />
-  <Brick  x="6" y="2" />
-  <Brick x="6" y="1" />
-  <Brick  x="3" y="3" />
-  <Brick x="3" y="2" />
-  <Brick  x="3" y="1" />
-  <Brick x="2" y="1" />
-  <Brick  x="2" y="3" />
-  <Brick x="1" y="1" />
-  <Brick  x="1" y="2" />
-  <Brick x="1" y="3" />
-  
+
+
+
+  <!--- < block de droite/> -->
+
+    <Brick x="8" y="-6.5" />
+    <Brick  x="8" y="-5.5" />
+    <Brick x="8" y="-4.5" />
+    <Brick  x="11" y="-6.5" />
+    <Brick x="11" y="-5.5" />
+    <Brick  x="11" y="-4.5" />
+    <Brick x="12" y="-4.5" />
+    <Brick  x="12" y="-6.5" />
+    <Brick x="13" y="-4.5" />
+    <Brick  x="13" y="-5.5" />
+    <Brick x="13" y="-6.5" />
+
+    <Brick x="20" y="-6.5" />
+    <Brick  x="20" y="-5.5" />
+    <Brick x="20" y="-4.5" />
+    <Brick  x="17" y="-6.5" />
+    <Brick x="17" y="-5.5" />
+    <Brick  x="17" y="-4.5" />
+    <Brick x="16" y="-4.5" />
+    <Brick  x="16" y="-6.5" />
+    <Brick x="15" y="-4.5" />
+    <Brick  x="15" y="-5.5" />
+    <Brick x="15" y="-6.5" />
+
+
+    <Brick x="8" y="-3" />
+    <Brick  x="8" y="-2" />
+    <Brick x="8" y="-1" />
+    <Brick  x="11" y="-3" />
+    <Brick x="11" y="-2" />
+    <Brick  x="11" y="-1" />
+    <Brick x="12" y="-1" />
+    <Brick  x="12" y="-3" />
+    <Brick x="13" y="-1" />
+    <Brick  x="13" y="-2" />
+    <Brick x="13" y="-3" />
+
+    <Brick x="20" y="-3" />
+    <Brick  x="20" y="-2" />
+    <Brick x="20" y="-1" />
+    <Brick  x="17" y="-3" />
+    <Brick x="17" y="-2" />
+    <Brick  x="17" y="-1" />
+    <Brick x="16" y="-1" />
+    <Brick  x="16" y="-3" />
+    <Brick x="15" y="-1" />
+    <Brick  x="15" y="-2" />
+    <Brick x="15" y="-3" />
+
+    <Brick x="8" y="6.5" />
+    <Brick  x="8" y="5.5" />
+    <Brick x="8" y="4.5" />
+    <Brick  x="11" y="6.5" />
+    <Brick x="11" y="5.5" />
+    <Brick  x="11" y="4.5" />
+    <Brick x="12" y="4.5" />
+    <Brick  x="12" y="6.5" />
+    <Brick x="13" y="4.5" />
+    <Brick  x="13" y="5.5" />
+    <Brick x="13" y="6.5" />
+
+    <Brick x="20" y="6.5" />
+    <Brick  x="20" y="5.5" />
+    <Brick x="20" y="4.5" />
+    <Brick  x="17" y="6.5" />
+    <Brick x="17" y="5.5" />
+    <Brick  x="17" y="4.5" />
+    <Brick x="16" y="4.5" />
+    <Brick  x="16" y="6.5" />
+    <Brick x="15" y="4.5" />
+    <Brick  x="15" y="5.5" />
+    <Brick x="15" y="6.5" />
+
+
+    <Brick x="8" y="3" />
+    <Brick  x="8" y="2" />
+    <Brick x="8" y="1" />
+    <Brick  x="11" y="3" />
+    <Brick x="11" y="2" />
+    <Brick  x="11" y="1" />
+    <Brick x="12" y="1" />
+    <Brick  x="12" y="3" />
+    <Brick x="13" y="1" />
+    <Brick  x="13" y="2" />
+    <Brick x="13" y="3" />
+
+    <Brick x="20" y="3" />
+    <Brick  x="20" y="2" />
+    <Brick x="20" y="1" />
+    <Brick  x="17" y="3" />
+    <Brick x="17" y="2" />
+    <Brick  x="17" y="1" />
+    <Brick x="16" y="1" />
+    <Brick  x="16" y="3" />
+    <Brick x="15" y="1" />
+    <Brick  x="15" y="2" />
+    <Brick x="15" y="3" />
+
+
+
+
+
+  <!--- < block de gauche/> -->
+
+  <Brick x="-8" y="-6.5" />
+  <Brick  x="-8" y="-5.5" />
+  <Brick x="-8" y="-4.5" />
+  <Brick  x="-11" y="-6.5" />
+  <Brick x="-11" y="-5.5" />
+  <Brick  x="-11" y="-4.5" />
+  <Brick x="-12" y="-4.5" />
+  <Brick  x="-12" y="-6.5" />
+  <Brick x="-13" y="-4.5" />
+  <Brick  x="-13" y="-5.5" />
+  <Brick x="-13" y="-6.5" />
+
+  <Brick x="-20" y="-6.5" />
+  <Brick  x="-20" y="-5.5" />
+  <Brick x="-20" y="-4.5" />
+  <Brick  x="-17" y="-6.5" />
+  <Brick x="-17" y="-5.5" />
+  <Brick  x="-17" y="-4.5" />
+  <Brick x="-16" y="-4.5" />
+  <Brick  x="-16" y="-6.5" />
+  <Brick x="-15" y="-4.5" />
+  <Brick  x="-15" y="-5.5" />
+  <Brick x="-15" y="-6.5" />
+
+
+  <Brick x="-8" y="-3" />
+  <Brick  x="-8" y="-2" />
+  <Brick x="-8" y="-1" />
+  <Brick  x="-11" y="-3" />
+  <Brick x="-11" y="-2" />
+  <Brick  x="-11" y="-1" />
+  <Brick x="-12" y="-1" />
+  <Brick  x="-12" y="-3" />
+  <Brick x="-13" y="-1" />
+  <Brick  x="-13" y="-2" />
+  <Brick x="-13" y="-3" />
+
+  <Brick x="-20" y="-3" />
+  <Brick  x="-20" y="-2" />
+  <Brick x="-20" y="-1" />
+  <Brick  x="-17" y="-3" />
+  <Brick x="-17" y="-2" />
+  <Brick  x="-17" y="-1" />
+  <Brick x="-16" y="-1" />
+  <Brick  x="-16" y="-3" />
+  <Brick x="-15" y="-1" />
+  <Brick  x="-15" y="-2" />
+  <Brick x="-15" y="-3" />
+
+  <Brick x="-8" y="6.5" />
+  <Brick  x="-8" y="5.5" />
+  <Brick x="-8" y="4.5" />
+  <Brick  x="-11" y="6.5" />
+  <Brick x="-11" y="5.5" />
+  <Brick  x="-11" y="4.5" />
+  <Brick x="-12" y="4.5" />
+  <Brick  x="-12" y="6.5" />
+  <Brick x="-13" y="4.5" />
+  <Brick  x="-13" y="5.5" />
+  <Brick x="-13" y="6.5" />
+
+  <Brick x="-20" y="6.5" />
+  <Brick  x="-20" y="5.5" />
+  <Brick x="-20" y="4.5" />
+  <Brick  x="-17" y="6.5" />
+  <Brick x="-17" y="5.5" />
+  <Brick  x="-17" y="4.5" />
+  <Brick x="-16" y="4.5" />
+  <Brick  x="-16" y="6.5" />
+  <Brick x="-15" y="4.5" />
+  <Brick  x="-15" y="5.5" />
+  <Brick x="-15" y="6.5" />
+
+
+  <Brick x="-8" y="3" />
+  <Brick  x="-8" y="2" />
+  <Brick x="-8" y="1" />
+  <Brick  x="-11" y="3" />
+  <Brick x="-11" y="2" />
+  <Brick  x="-11" y="1" />
+  <Brick x="-12" y="1" />
+  <Brick  x="-12" y="3" />
+  <Brick x="-13" y="1" />
+  <Brick  x="-13" y="2" />
+  <Brick x="-13" y="3" />
+
+  <Brick x="-20" y="3" />
+  <Brick  x="-20" y="2" />
+  <Brick x="-20" y="1" />
+  <Brick  x="-17" y="3" />
+  <Brick x="-17" y="2" />
+  <Brick  x="-17" y="1" />
+  <Brick x="-16" y="1" />
+  <Brick  x="-16" y="3" />
+  <Brick x="-15" y="1" />
+  <Brick  x="-15" y="2" />
+  <Brick x="-15" y="3" />
+
+
 </Drawing>

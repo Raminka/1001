@@ -7,10 +7,10 @@ Obstacle::Obstacle(double X, double Y, b2World *world, sf::RenderWindow & window
 	,dimY(dimy)
 	,x(X + window.getSize().x / 2 )
 	,y(Y + window.getSize().y / 2 )
-	//,touched(false)
 	,m_contact(false)
 	, obstacleAction(nothing)
 {
+	/*definition de bodey*/
 	myBodyDef.type = b2_staticBody;
 	myBodyDef.position.Set(x / SCALE, y / SCALE);
 
@@ -21,7 +21,12 @@ Obstacle::Obstacle(double X, double Y, b2World *world, sf::RenderWindow & window
 	boxFixtureDef.shape = &boxShape;
 	boxFixtureDef.density = 1;
 	staticBody->CreateFixture(&boxFixtureDef);
+	/*UserData est utilisé pour connaitre quel body a eu le contact*/
 	staticBody->SetUserData(this);
+}
+
+Obstacle::~Obstacle() {
+
 }
 
 double Obstacle::getX()const {

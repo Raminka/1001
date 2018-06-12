@@ -8,13 +8,13 @@ public:
 	Ball(b2World* world, double x, double y);
 	~Ball();
 
-	void Up(sf::Event event) ;
-	void Down(sf::Event event) ;
-
+	/*mise à jour de la position de Ball*/
 	void update() override;
 
 private:
 	b2BodyDef myBodyDef;
+
+	/*ces deux variables permettent de garder la vitesse constante*/
 	double vel = 10;
 	double coef;
 };

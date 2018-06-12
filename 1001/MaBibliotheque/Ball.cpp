@@ -8,8 +8,10 @@ Ball::Ball(b2World* world, double x, double y)
 {
 	Load("../MaBibliotheque/ballFeu.png");
 
-	sprite.setScale(sf::Vector2f(0.25, 0.25)); //ajoustement de l'image
+	/*ajoustement de l'image*/
+	sprite.setScale(sf::Vector2f(0.30, 0.30)); 
 
+	/*création de body de box2d*/
 	myBodyDef.type = b2_dynamicBody;
 	myBodyDef.position.Set(x / scale, y / scale);
 	body = (world->CreateBody(&myBodyDef));
@@ -22,7 +24,7 @@ Ball::Ball(b2World* world, double x, double y)
 	myFixtureDef.shape = &circleShape; 
 	body->CreateFixture(&myFixtureDef);
 
-	/*initialisation du mouvement au centre*/
+	/*initialisation du mouvement vers le centre */
 	if (x < 200) {
 		body->ApplyForce(b2Vec2(600, 0), b2Vec2(0, 0), true);
 	}
@@ -38,19 +40,17 @@ Ball::~Ball()
 {
 }
 
-/*joueur ne controle pas les mouvements des balles*/
-void Ball::Up(sf::Event event) {}
-void Ball::Down(sf::Event event){}
 
 void Ball::update() {
+
 	MovingObject::update();
 
 	/*les calculs suivantes permettent de garder la vitesse constante de la balle*/
 	coef = std::sqrt(std::pow(body->GetLinearVelocity().x, 2) + std::pow(body->GetLinearVelocity().y, 2));
 	if (coef != 0) {
-		if (std::abs(body->GetLinearVelocity().x )<= 0.05*vel) { //si le mouvement de la balle est verticale 
+		if (std::abs(body->GetLinearVelocity().x )<= 0.02*vel) { //si le mouvement de la balle est verticale 
 			if (body->GetPosition().x * scale < limitWindowX / 2) { //permet de rediriger la balle vers le centre
-				body->SetLinearVelocity(b2Vec2(0.15*std::abs(body->GetLinearVelocity().y*vel) / coef, 0.85*body->GetLinearVelocity().y*vel / coef));
+				body->SetLinearVelocity(b2Vec2(0.1*std::abs(body->GetLinearVelocity().y*vel) / coef, 0.8*body->GetLinearVelocity().y*vel / coef));
 			}
 			else {
 				

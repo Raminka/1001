@@ -10,31 +10,39 @@
 class Game
 {
 public:
-	static void Start();
+	Game();
+	
+	/*lancement de jeu*/
+	void Start();
 
 private:
-	static bool IsExiting();
-	static void GameLoop();
-	
-	static void ShowMenu();
+	/*vérification si l'utilisateur a décidé de quitter le jeu*/
+	bool IsExiting();
 
+	/*design pattern qui affiche en continu le jeu*/
+	void GameLoop();
+	
+	/*l'affichage de menu*/
+	void ShowMenu();
+	MainMenu mainMenu;
+
+	/*l'état de jeu en fonction de choix d'utilisateur*/
 	enum GameState {
 		Uninitialized, ShowingMenu, Playing, Exiting 
 	};
+	GameState gameState;
 
-	static GameState gameState;
-	static sf::RenderWindow mainWindow;
+	sf::RenderWindow mainWindow;
+	b2World world = b2World(b2Vec2(0.0f, 0.0f));	
+	//detection des contacts
+	MyContactListener myContactListenerInstance;
 
 	//gestion de tous les objets mobiles et obstacles
-	static ObjectManager objectManager;
+	 ObjectManager objectManager;
 
-	static b2World world;
+	/**init des objets du jeu*/
+	 void InitGame(int level, MainMenu::ModePlay mode);
 
-	/**init des obstacles du jeu*/
-	static void InitGame(int level, MainMenu::ModePlay mode);
 
-	//detection des contacts
-	static MyContactListener myContactListenerInstance;
 
-	static MainMenu mainMenu;
 };

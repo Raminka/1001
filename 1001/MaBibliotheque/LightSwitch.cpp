@@ -15,11 +15,14 @@ void LightSwitch::Draw(sf::RenderWindow & window) {
 		rect.setPosition(staticBody->GetPosition().x*SCALE - dimX / 2, staticBody->GetPosition().y*SCALE - dimY / 2);
 		rect.setFillColor(sf::Color::Red);
 		window.draw(rect);
+		/*l'affichage est appelé après la mise à jour donc la variable est traitée et 
+		risque de changer à l'infini le mode de jeu si on la change pas*/
 		obstacleAction = nothing;
 }
 
 void LightSwitch::startContact() {
 	if (obstacleAction == nothing) {
+		/*indique qu'il faut changer le mode de jeu*/
 		obstacleAction = switchLight;
 	}
 }

@@ -3,8 +3,12 @@
 #include "Game.h"
 int monMain()
 {
+	{
+		Game game;
+		game.Start();
+	}
 
-	Game::Start();
+	//Game::Start();
 
 	return 0;
 

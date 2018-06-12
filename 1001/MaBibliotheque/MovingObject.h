@@ -7,34 +7,38 @@ class MovingObject
 {
 public:
 	MovingObject();
-	virtual ~MovingObject(void) =0;
+	virtual ~MovingObject(void) ;
 
 	virtual void Draw(sf::RenderWindow & window) ; //affichage SFML
 
 	virtual void update()=0; //mise à jour de position
 	void clear(); //supprime le body
 	
-	virtual	void Up(sf::Event event)=0; 
-	virtual	void Down(sf::Event event) = 0;
+	/*le mouvement de joueur en fonction de commandes de joueurs
+	Fonction est définie que pour les PlayerPaddles*/
+	virtual	void Up(sf::Event event); 
+	virtual	void Down(sf::Event event) ;
 	void stop();
 
 	/*getteurs*/
-	virtual float getSizeX()const;
-	virtual float getSizeY()const;
 	double getPositionX() const;
 	double getPositionY()const;
 
 protected:
 
-	virtual void Load(std::string filename1);//chargement d'image
+	 void Load(std::string filename1);//chargement d'image
 
-	b2FixtureDef myFixtureDef;
 	/*données d'élément*/
 	sf::Sprite sprite;
 	b2Body * body = NULL;
-	float scale = 30.f;
-	double limitWindowY;
+	b2FixtureDef myFixtureDef;
+	float scale = 30.f; //permet le passage entre SFML et box2D
+	double limitWindowY; 
 	double limitWindowX;
+	
+	/*calcule de la taille dobjet en fonction de l'image*/
+	double getSizeX()const;
+	double getSizeY()const;
 
 private:
 	sf::Texture image;

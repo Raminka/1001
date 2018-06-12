@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Rock.h"
-#include <iostream>
 
 
 Rock::Rock(pugi::xml_node node, b2World *world, sf::RenderWindow & window)

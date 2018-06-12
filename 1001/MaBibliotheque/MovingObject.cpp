@@ -37,11 +37,13 @@ void MovingObject::Draw(sf::RenderWindow & window) {
 }
 
 void MovingObject::update() {
+	/*mettre à jour la position de l'affichage sfml*/
 	b2Vec2 pos = body->GetPosition();
 	sprite.setPosition(pos.x*scale - getSizeX() / 2, pos.y*scale - getSizeY() / 2);
 }
 
 void MovingObject::stop() {
+	/*arret de mouvement de l'objet*/
 	body->SetLinearVelocity(b2Vec2(0, 0));
 }
 
@@ -50,11 +52,13 @@ void MovingObject::clear() {
 	body->GetWorld()->DestroyBody(body);
 }
 
-float MovingObject::getSizeX() const{
+
+/*les guetteurs*/
+double MovingObject::getSizeX() const{
 	return image.getSize().x*sprite.getScale().x;
 }
 
-float MovingObject::getSizeY()const {
+double MovingObject::getSizeY()const {
 	return image.getSize().y*sprite.getScale().y;
 }
 
@@ -64,3 +68,8 @@ double MovingObject::getPositionX() const{
 double MovingObject::getPositionY() const {
 	return body->GetPosition().y*scale;
 }
+
+void MovingObject::Up(sf::Event event) {
+
+}
+void MovingObject::Down(sf::Event event){}

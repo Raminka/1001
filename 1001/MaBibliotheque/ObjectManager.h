@@ -15,6 +15,7 @@ public:
 	ObjectManager();
 	~ObjectManager();
 
+	/*initialisation des éléments de jeu*/
 	void initObjects(pugi::xml_node node, b2World *world, sf::RenderWindow & window);
 	
 	/*recalcule de positio et draw*/
@@ -23,24 +24,28 @@ public:
 	/*deplacements de joueur*/
 	void handleInput(sf::Event event);
 
+	/*on efface les éléments de jeu precedent*/
 	void clear();
 
 	/*est ce que le jeu s'arrete?
-	le jeu s'arrete si un des joueur touche le mur droite ou le mur gauche*/
+	le jeu s'arrete si un des deux joueurs touche le mur droite ou le mur gauche*/
 	bool Stop;
 	/*est ce que le mode de jeu est dark? */
 	bool darkMode;
 
 private:
+	/*Balls et playerPaddle*/
 	std::map<std::string, std::unique_ptr<MovingObject>> movingObjects;
+	/*les obstacles de jeu*/
 	std::vector<std::unique_ptr<Obstacle>> obstacles;
 
 	/*joueurs et balls*/
 	void AddMovingObject(std::string name, MovingObject* movingObject);
 
+	/*affichage sfml*/
 	void DrawAll(sf::RenderWindow& renderWindow);
 
-	/*trois elements permet de créer le mode Dark*/
+	/*cinq elements permet de créer le mode Dark*/
 	std::vector<sf::CircleShape> lights;
 	sf::RenderTexture target;
 

@@ -7,12 +7,12 @@
 ObjectManager::ObjectManager()
 	: Stop(false)
 	, darkMode(false)
-	, radiusMax(850)
+	, radiusMax(1000)
 	,radiusMin(120)
 	, radiusCircle(radiusMax)
 {
 
-	target.create(1024, 768);
+	target.create(1280, 960);
 	for (int i = 0; i < 4; i++) {
 		sf::CircleShape circle(radiusCircle);
 		lights.push_back(circle);
@@ -39,11 +39,6 @@ void ObjectManager::DrawAll(sf::RenderWindow& renderWindow)
 }
 
 void ObjectManager::Update(sf::RenderWindow& window) {
-	/*for (int i = 0; i <4; i++) {
-		if (obstacles[i]->touched) { //si une des murs a été touché -> concerne que les murs Right et Left
-			Stop = true;;//alors on arrete le jeu
-		}
-	}*/
 	for (auto & object : movingObjects) {
 		if (Stop) object.second->stop();//on arrete les movingObjects quand le jeu s'arrete
 		object.second->update();
@@ -66,16 +61,18 @@ void ObjectManager::Update(sf::RenderWindow& window) {
 	}
 	DrawAll(window); 
 	
-	/*mode Dark est activé*/
+	/*si mode Dark est activé*/
 	if (darkMode) {
+		/*on retrecie l'écran au fur à mesure*/
 		if (radiusCircle > radiusMin) {
-			if (radiusCircle > 600) {
+			if (radiusCircle > 800) {
 				radiusCircle = 600;
 			}else 
 			radiusCircle  -= 10;
 		}
 		target.clear(sf::Color(0, 0, 0, 255));
 		int i = 0;
+		/*définition de cercles lumineux*/
 		for (auto & object : movingObjects) {//on centre chaque cercle sur les objets en mouvements
 			lights[i].setRadius(radiusCircle);
 			lights[i].setPosition(sf::Vector2f(object.second->getPositionX() - lights[i].getRadius(), object.second->getPositionY() - lights[i].getRadius()));
@@ -86,29 +83,31 @@ void ObjectManager::Update(sf::RenderWindow& window) {
 		window.draw(sf::Sprite(target.getTexture()));
 	}	
 	else {
+		/*on continue à tracer target qui si le rayon n'est pas maximal*/
 		if (radiusCircle < radiusMax) {
 			radiusCircle += 10;
+
+			target.clear(sf::Color(0, 0, 0, 255));
+			int i = 0;
+			for (auto & object : movingObjects) {//on centre chaque cercle sur les objets en mouvements
+				lights[i].setRadius(radiusCircle);
+				lights[i].setPosition(sf::Vector2f(object.second->getPositionX() - lights[i].getRadius(), object.second->getPositionY() - lights[i].getRadius()));
+				target.draw(lights[i], sf::BlendNone);
+				i++;
+			}
+			target.display();
+			window.draw(sf::Sprite(target.getTexture()));
 		}
-		target.clear(sf::Color(0, 0, 0, 255));
-		int i = 0;
-		for (auto & object : movingObjects) {//on centre chaque cercle sur les objets en mouvements
-			lights[i].setRadius(radiusCircle);
-			lights[i].setPosition(sf::Vector2f(object.second->getPositionX() - lights[i].getRadius(), object.second->getPositionY() - lights[i].getRadius()));
-			target.draw(lights[i], sf::BlendNone);
-			i++;
-		}
-		target.display();
-		window.draw(sf::Sprite(target.getTexture()));
 	}
 		
 }
 
 void ObjectManager::initObjects(pugi::xml_node node, b2World *world, sf::RenderWindow & window) {
 	/*walls*/
-	obstacles.push_back(std::make_unique<Wall>(2 - ((double)window.getSize().x / 2), 0, world, window, 2, window.getSize().y, "Left"));
-	obstacles.push_back(std::make_unique<Wall>(((double)window.getSize().x / 2), 0, world, window, 2, window.getSize().y, "Right"));
-	obstacles.push_back(std::make_unique<Wall>(0, 2 - ((double)window.getSize().y / 2), world, window, window.getSize().x, 2, "Up"));
-	obstacles.push_back(std::make_unique<Wall>(0, ((double)window.getSize().y / 2), world, window, window.getSize().x, 2, "Down"));
+	obstacles.push_back(std::make_unique<Wall>(2 - ((double)window.getSize().x / 2), 0, world, window, 4, window.getSize().y, "Left"));
+	obstacles.push_back(std::make_unique<Wall>(((double)window.getSize().x / 2), 0, world, window,4 , window.getSize().y, "Right"));
+	obstacles.push_back(std::make_unique<Wall>(0, 2 - ((double)window.getSize().y / 2), world, window, window.getSize().x, 4, "Up"));
+	obstacles.push_back(std::make_unique<Wall>(0, ((double)window.getSize().y / 2), world, window, window.getSize().x, 4, "Down"));
 
 	/*création des obstacles à partir de xml*/
 	for (auto child : node.children()) {
@@ -130,9 +129,6 @@ void ObjectManager::initObjects(pugi::xml_node node, b2World *world, sf::RenderW
 		lights[i].setPosition(0, 0);
 	}
 	
-	//target.display();
-	//window.draw(sf::Sprite(target.getTexture()));
-
 	/*creation des objets mobiles*/
 	PlayerPaddle *player1 = new PlayerPaddle(world, 30, (window.getSize().y) / 2);
 	PlayerPaddle *player2 = new PlayerPaddle(world, window.getSize().x - 30, (window.getSize().y) / 2);
@@ -143,9 +139,6 @@ void ObjectManager::initObjects(pugi::xml_node node, b2World *world, sf::RenderW
 	AddMovingObject("player2", player2);
 	AddMovingObject("ball1", ball1);
 	AddMovingObject("ball2", ball2);
-
-	
-
 }
 
 
