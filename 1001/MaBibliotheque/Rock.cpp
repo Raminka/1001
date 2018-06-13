@@ -11,9 +11,6 @@ Rock::Rock(pugi::xml_node node, b2World *world, sf::RenderWindow & window)
 	node.attribute("dimY").as_double()*tailleY
 }{}
 
-
-
-
 void Rock::Draw(sf::RenderWindow & window) {
 	sf::RectangleShape rect(sf::Vector2f(dimX-0.5, dimY-0.5));
 	rect.setFillColor(sf::Color(70, 70, 70));

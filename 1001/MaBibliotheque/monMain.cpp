@@ -7,9 +7,6 @@ int monMain()
 		Game game;
 		game.Start();
 	}
-
-	//Game::Start();
-
 	return 0;
 
 }

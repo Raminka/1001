@@ -52,12 +52,10 @@ void MovingObject::clear() {
 	body->GetWorld()->DestroyBody(body);
 }
 
-
 /*les guetteurs*/
 double MovingObject::getSizeX() const{
 	return image.getSize().x*sprite.getScale().x;
 }
-
 double MovingObject::getSizeY()const {
 	return image.getSize().y*sprite.getScale().y;
 }

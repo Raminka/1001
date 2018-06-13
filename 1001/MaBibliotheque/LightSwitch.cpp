@@ -8,8 +8,6 @@ LightSwitch::LightSwitch(pugi::xml_node node, b2World *world, sf::RenderWindow &
 {
 }
 
-
-
 void LightSwitch::Draw(sf::RenderWindow & window) {
 		sf::RectangleShape rect(sf::Vector2f(dimX - 0.5, dimY - 0.5));
 		rect.setPosition(staticBody->GetPosition().x*SCALE - dimX / 2, staticBody->GetPosition().y*SCALE - dimY / 2);
