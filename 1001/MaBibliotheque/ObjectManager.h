@@ -8,6 +8,7 @@
 #include "LightSwitch.h"
 #include "PlayerPaddle.h"
 #include "Ball.h"
+#include <iostream>
 
 class ObjectManager
 {
@@ -33,14 +34,14 @@ public:
 	/*est ce que le mode de jeu est dark? */
 	bool darkMode;
 
+	enum movingObjectsNames {player1, player2, ball1, ball2};
+
 private:
 	/*Balls et playerPaddle*/
-	std::map<std::string, std::unique_ptr<MovingObject>> movingObjects;
+	std::unique_ptr<MovingObject> movingObjects[4];
+
 	/*les obstacles de jeu*/
 	std::vector<std::unique_ptr<Obstacle>> obstacles;
-
-	/*joueurs et balls*/
-	void AddMovingObject(std::string name, MovingObject* movingObject);
 
 	/*affichage sfml*/
 	void DrawAll(sf::RenderWindow& renderWindow);

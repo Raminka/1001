@@ -50,11 +50,11 @@ void Ball::update() {
 	if (coef != 0) {
 		if (std::abs(body->GetLinearVelocity().x )<= 0.02*vel) { //si le mouvement de la balle est verticale 
 			if (body->GetPosition().x * scale < limitWindowX / 2) { //permet de rediriger la balle vers le centre
-				body->SetLinearVelocity(b2Vec2(0.1*std::abs(body->GetLinearVelocity().y*vel) / coef, 0.8*body->GetLinearVelocity().y*vel / coef));
+				body->SetLinearVelocity(b2Vec2(0.1*std::abs(body->GetLinearVelocity().y*vel) / coef, 0.9*body->GetLinearVelocity().y*vel / coef));
 			}
 			else {
 				
-				body->SetLinearVelocity(b2Vec2(-0.15*std::abs(body->GetLinearVelocity().y*vel )/ coef, 0.85*body->GetLinearVelocity().y*vel / coef));
+				body->SetLinearVelocity(b2Vec2(-0.1*std::abs(body->GetLinearVelocity().y*vel )/ coef, 0.9*body->GetLinearVelocity().y*vel / coef));
 			}
 		}else body->SetLinearVelocity(b2Vec2(body->GetLinearVelocity().x*vel / coef, body->GetLinearVelocity().y*vel / coef));
 	}

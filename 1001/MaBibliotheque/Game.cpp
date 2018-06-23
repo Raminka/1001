@@ -110,9 +110,6 @@ void Game::ShowMenu()
 }
 
 void Game::InitGame(int level,MainMenu::ModePlay mode ) {
-	/*on efface les objets precedents*/
-	objectManager.clear ();
-
 	/*on recoupere le fichier contenant le niveau correspondant*/
 	pugi::xml_document doc;
 	pugi::xml_parse_result result;
