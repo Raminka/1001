@@ -21,6 +21,6 @@ void Wall::Draw(sf::RenderWindow & window) {
 void Wall::startContact() {
 	/*fin de jeu que si il y a le conact avec les murs de côté*/
 	if ("Left" == label || "Right" == label) {
-		//obstacleAction = stopGame;
+		obstacleAction = stopGame;
 	}
 }
