@@ -22,6 +22,7 @@ Ball::Ball(b2World* world, double x, double y)
 	myFixtureDef.density = 1;
 	myFixtureDef.restitution = 1;//rebondissement au max
 	myFixtureDef.shape = &circleShape; 
+	myFixtureDef.friction = 0;
 	body->CreateFixture(&myFixtureDef);
 
 	/*initialisation du mouvement vers le centre */
@@ -48,6 +49,7 @@ void Ball::update() {
 	/*les calculs suivantes permettent de garder la vitesse constante de la balle*/
 	coef = std::sqrt(std::pow(body->GetLinearVelocity().x, 2) + std::pow(body->GetLinearVelocity().y, 2));
 	if (coef != 0) {
+		/*
 		if (std::abs(body->GetLinearVelocity().x )<= 0.02*vel) { //si le mouvement de la balle est verticale 
 			if (body->GetPosition().x * scale < limitWindowX / 2) { //permet de rediriger la balle vers le centre
 				body->SetLinearVelocity(b2Vec2(0.1*std::abs(body->GetLinearVelocity().y*vel) / coef, 0.9*body->GetLinearVelocity().y*vel / coef));
@@ -57,5 +59,7 @@ void Ball::update() {
 				body->SetLinearVelocity(b2Vec2(-0.1*std::abs(body->GetLinearVelocity().y*vel )/ coef, 0.9*body->GetLinearVelocity().y*vel / coef));
 			}
 		}else body->SetLinearVelocity(b2Vec2(body->GetLinearVelocity().x*vel / coef, body->GetLinearVelocity().y*vel / coef));
+		*/
+		body->SetLinearVelocity(b2Vec2(body->GetLinearVelocity().x*vel / coef, body->GetLinearVelocity().y*vel / coef));
 	}
 }
